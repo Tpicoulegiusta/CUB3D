@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 14:03:25 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/15 14:10:52 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:33:54 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	ft_counti(char *s, char c)
 	i = 0;
 	if (s[i] == c)
 		i++;
+	if (!s[i])
+		return (0);
 	if (s[0] != c || s[i + 1] == '\0')
 		k++;
 	while (s[i])

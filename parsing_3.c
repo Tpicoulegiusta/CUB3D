@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 11:10:59 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/15 16:06:46 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:26:42 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int parse_file(char **argv, t_game *game)
 		tab = ft_strjoinfree2(tab, tab2);
 		free(tab2);
 	}
+	if(tab == NULL)
+		return(1);
 	game->file.all_file = ft_split(tab, '\n');
 	free(tab);
 	if (i == 0)

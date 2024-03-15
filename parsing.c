@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:26:54 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/15 16:04:21 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/03/15 16:27:39 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@ void	ft_free_tab(char **tab)
 	int	i;
 
 	i = 0;
-	while(tab[i])
+	if(tab)
 	{
-		free(tab[i++]);
+		while(tab[i])
+		{
+			free(tab[i++]);
+		}
+		free(tab);
 	}
-	free(tab);
 }
 
 int	ft_parsing(int argc, char **argv, t_game *game)
