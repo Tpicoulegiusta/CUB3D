@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 15:40:20 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/15 16:01:55 by tpicoule         ###   ########.fr       */
+/*   Created: 2024/03/14 15:22:19 by tpicoule          #+#    #+#             */
+/*   Updated: 2024/03/15 13:59:56 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h" 
+#include "cub3d.h"
 
-int main(int argc, char **argv)
+char	*ft_strjoinfree2(char *stock, char *tmp)
 {
-    t_game  game;
-	int i;
-	// int	j;
+	char	*str;
 
-	// j = 0;
-	i = 0;
-    if (ft_parsing(argc, argv, &game) != 0)
-        return(1);
-    while(game.file.all_file[i])
-	{
-		printf("%s\n", game.file.all_file[i]);
-		i++;
-	}
-	////a mettre dans une fonction free pour tous les tab////
-	ft_free_tab(game.file.all_file);
+	str = ft_strjoin(stock, tmp);
+	if (stock)
+		free (stock);
+	return (str);
 }
+
+// int ft_strlen(char *str)
+// {
+//     int i;
+    
+//     i = 0;
+
+//     while(str[i])
+//         i++;
+//     return(i);
+// }

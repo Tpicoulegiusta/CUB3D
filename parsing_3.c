@@ -1,40 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   parsing_3.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 16:26:54 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/15 16:04:21 by tpicoule         ###   ########.fr       */
+/*   Created: 2024/03/15 11:10:59 by tpicoule          #+#    #+#             */
+/*   Updated: 2024/03/15 16:06:46 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_free_tab(char **tab)
+int parse_file(char **argv, t_game *game)
 {
-	int	i;
+    int		file;
+    char	*tab;
+	char	*tab2;
+	int		i;
 
 	i = 0;
-	while(tab[i])
+    file = open(argv[1], O_RDONLY, 0777);
+	tab = get_next_line(file);
+	while(1)
 	{
-		free(tab[i++]);
+		i++;
+		tab2 = get_next_line(file);
+		if (!tab2)
+			break;
+		tab = ft_strjoinfree2(tab, tab2);
+		free(tab2);
 	}
+	game->file.all_file = ft_split(tab, '\n');
 	free(tab);
-}
-
-int	ft_parsing(int argc, char **argv, t_game *game)
-{
-
-	if (check_args(argc, argv) != 0)
-		return(write(2, "Error\nwrong args\n", 17));
-	if (open_file(argv) != 0)
-		return(write(2, "Error\nmap can't be opened or directory\n", 39));
-	if (parse_file(argv, game) != 0)
-	{
-		ft_free_tab(game->file.all_file);
-		return (write(2, "Error\nfile problem\n", 19));
-	}
-	return (0);
+	if (i == 0)
+		return (1);
+    return (0);
 }
