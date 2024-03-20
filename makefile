@@ -6,7 +6,7 @@
 #    By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/13 15:51:24 by tpicoule          #+#    #+#              #
-#    Updated: 2024/03/15 14:35:11 by tpicoule         ###   ########.fr        #
+#    Updated: 2024/03/20 17:27:53 by tpicoule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SOURCES		= cub3d.c \
 			  parsing_3.c
 OBJECTS		= ${SOURCES:.c=.o}
 RM			= rm -f
-CC			= gcc
+CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -fsanitize=address -g
 #MLX			= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 

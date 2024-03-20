@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:40:20 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/15 16:23:58 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/03/20 17:31:54 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,22 @@
 int main(int argc, char **argv)
 {
     t_game  game;
-	int i;
+	// int i;
 	// int	j;
 
 	// j = 0;
-	i = 0;
+	// i = 0;
     if (ft_parsing(argc, argv, &game) != 0)
         return(1);
-    while(game.file.all_file[i])
-	{
-		printf("%s\n", game.file.all_file[i]);
-		i++;
-	}
+    // while(game.file.all_file[i])
+	// {
+	// 	printf("%s\n", game.file.all_file[i]);
+	// 	i++;
+	// }
+	
+		for(int x = 0; game.file.tab_txt[x] != NULL; x++)
+			printf("%s\n", game.file.tab_txt[x]);
 	////a mettre dans une fonction free pour tous les tab////
 	ft_free_tab(game.file.all_file);
+	ft_free_tab(game.file.tab_txt);
 }
