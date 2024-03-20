@@ -1,4 +1,3 @@
-# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    MAKEFILE                                           :+:      :+:    :+:    #
@@ -13,26 +12,31 @@
 NAME		= cub3d
 
 SOURCES		= cub3d.c \
-			  parsing.c
+			  parsing.c \
+			  win_manage.c
 OBJECTS		= ${SOURCES:.c=.o}
 RM			= rm -f
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
-MLX			= -lmlx -framework OpenGL -framework AppKit
+MLX			= -Lmlx -lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz
 
 .c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+	${CC} ${CFLAGS} -I/usr/include -Imlx -O3 -c $< -o ${<:.c=.o}
 
-${NAME}: 	${OBJECTS}
-	${CC} ${CFLAGS} ${MLX} ${OBJECTS} -o ${NAME}
+${NAME}:	minilibx ${OBJECTS}
+	${CC} ${CFLAGS} ${OBJECTS} ${MLX} -o ${NAME}
 
 all:		${NAME}
+
+minilibx:
+	${MAKE} -C mlx/
 
 clean:
 	${RM} ${OBJECTS}
 
 fclean: clean
 	${RM} ${NAME}
+	${MAKE} clean -C mlx/
 
 re: fclean all
 
