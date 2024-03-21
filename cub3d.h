@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:41:49 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/20 13:23:14 by rbulanad         ###   ########.fr       */
+/*   Updated: 2024/03/21 12:41:52 by rbulanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <math.h>
+# include <stdbool.h>
 # define HEIGHT 700
 # define WIDTH 1400
 # define RED 0x00FF0000
@@ -27,6 +28,8 @@
 # define BLUE 0x000000FF
 # define WHITE 0x00FFFFFF
 # define YELLOW 0x00FFDD00
+# define SKY 0x054A1FF
+# define GROUND 0x087460E
 
 
 typedef	struct s_map
@@ -41,7 +44,7 @@ typedef struct	s_game
     
 }	t_game;
 
-typedef struct	s_mlx
+typedef struct	s_data
 {
 	void	*mlx;
 	void	*mlx_win;
@@ -50,9 +53,40 @@ typedef struct	s_mlx
 	int	bpp;
 	int	line_length;
 	int	endian;
-}		t_mlx;
+	double	posX;
+	double	posY;
+	double	dirX;
+	double	dirY;
+	double	planeX;
+	double	planeY;
+	double	moveSpeed;
+	double	rotSpeed;
+	double	cameraX;
+	double	rayDirX;
+	double	rayDirY;
+	int	mapX;
+	int	mapY;
+	double	sideDistX; //length of ray from curr posi to next x or y side
+	double	sideDistY;
+	double	deltaDistX;
+	double	deltaDistY;
+	int	stepX; //what direction to step in x or y direction (+1 or -1)
+	int	stepY;
+	int	hit;
+	int	side;
+	double	perpWallDist;
+	double	drawStart;
+	double	drawEnd;
+	int	lineHeight;
+	int	x;
+
+}		t_data;
 
 int ft_parsing(int argc, char **argv, t_game *game);
-void	hooks(t_mlx *libx);
+int	movement(int key, t_data *data);
+void	hooks(t_data *data);
+void	ft_draw(t_data *data);
+void	clear_win(t_data *data);
+void	raycast(t_data *data);
 
 #endif

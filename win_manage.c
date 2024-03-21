@@ -6,7 +6,7 @@
 /*   By: rbulanad <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 14:01:25 by rbulanad          #+#    #+#             */
-/*   Updated: 2024/03/20 13:47:09 by rbulanad         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:01:06 by rbulanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ int	kb_hooks(int key)
 	return (0);
 }
 
-void	hooks(t_mlx *libx)
+void	hooks(t_data *data)
 {
-	mlx_key_hook(libx->mlx_win, kb_hooks, libx);
-	mlx_hook(libx->mlx_win, 17, 0, quit_win, libx);
+	mlx_hook(data->mlx_win, 2, 1L << 0, &movement, data);
+	mlx_key_hook(data->mlx_win, kb_hooks, data);
+	mlx_hook(data->mlx_win, 17, 0, quit_win, data);
 }
