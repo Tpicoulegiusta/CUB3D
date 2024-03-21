@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 11:10:59 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/20 17:44:17 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/03/21 15:19:27 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,35 @@ void	ft_save_line(t_game *g, int i, int j, int *k)
 	}
 }
 
+void	last_check(t_game *g)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	//g->bol = 0;
+	while(g->file.all_file[++i])
+	{
+		j = 0;
+		while(g->file.all_file[i][j])
+		{
+			if(g->file.all_file[i][j] == 'N' && g->file.all_file[i][j + 1]
+					&& g->file.all_file[i][j + 1] == 'O')
+					g->bol++;
+			else if(g->file.all_file[i][j] == 'S' && g->file.all_file[i][j + 1]
+					&& g->file.all_file[i][j + 1] == 'O')
+					g->bol++;
+			else if(g->file.all_file[i][j] == 'W' && g->file.all_file[i][j + 1]
+					&& g->file.all_file[i][j + 1] == 'E')
+					g->bol++;
+			else if(g->file.all_file[i][j] == 'E' && g->file.all_file[i][j + 1]
+					&& g->file.all_file[i][j + 1] == 'A')
+					g->bol++;
+			j++;
+		}
+	}
+}
+
 void	ft_parse_file_3(t_game *game)
 {
 	int		i;
@@ -95,7 +124,6 @@ void	ft_parse_file_3(t_game *game)
 	i = 0;
 	k = 0;
 	game->file.tab_txt = malloc(sizeof(char *) * (4 + 1));
-	//ft_save_line(game, i, j, game->file.tab_txt);
 	while (game->file.all_file[i])
 	{
 		j = 0;
@@ -103,4 +131,12 @@ void	ft_parse_file_3(t_game *game)
 		i++;
 	}
 	game->file.tab_txt[k] = NULL;
+	last_check(game);
+	if (game->bol != 4)
+	{
+		ft_free_tab(game->file.all_file);
+		ft_free_tab(game->file.tab_txt);
+		write(2, "Error\nfile problems_txture\n", 27);
+	 	exit(EXIT_FAILURE);
+	}
 }

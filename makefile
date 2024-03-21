@@ -6,7 +6,7 @@
 #    By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/13 15:51:24 by tpicoule          #+#    #+#              #
-#    Updated: 2024/03/20 17:27:53 by tpicoule         ###   ########.fr        #
+#    Updated: 2024/03/21 14:53:21 by tpicoule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ SOURCES		= cub3d.c \
 			  get_next_line.c \
 			  get_next_line_utils.c \
 			  ft_utils_2.c \
-			  parsing_3.c
+			  parsing_3.c \
+			  parsing_4.c
 OBJECTS		= ${SOURCES:.c=.o}
 RM			= rm -f
 CC			= cc

@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:41:49 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/20 17:41:12 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/03/21 15:39:11 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,30 @@ typedef struct s_file
     char    **all_file;
     char    **tab_txt;
     char	**tab_colors;
+    char    **tab_map;
 }   t_file;
+
+typedef	struct s_data
+{
+	char	*NO;
+	char	*SO;
+	char	*WE;
+	char	*EA;
+	char	*F;
+	char	*C;
+}	t_data;
+
 
 typedef struct	s_game
 {
+    int     n_NO;
+	int     n_SO;
+	int     n_WE;
+	int     n_EA;
+    int     bol;
     t_map	map;
     t_file  file;
+	t_data	data;
     
 }	t_game;
 //////////////////////////////////////////////////////////////////////
@@ -69,5 +87,7 @@ void	ft_free_tab(char **tab);
 int	    ft_parse_file_2(t_game *game);
 void	ft_parse_file_3(t_game *game);
 void	ft_save_line(t_game *g, int i, int j, int *k);
-
+void	last_check(t_game *g);
+void    ft_parse_texture(t_game *game);
+void	ft_innit(t_game *game);
 #endif
