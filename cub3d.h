@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:41:49 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/21 15:39:11 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/03/22 15:56:21 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,21 @@ typedef struct s_file
 
 typedef	struct s_data
 {
-	char	*NO;
-	char	*SO;
-	char	*WE;
-	char	*EA;
-	char	*F;
-	char	*C;
+	char	*no;
+	char	*so;
+	char	*we;
+	char	*ea;
+	char	*f;
+	char	*c;
 }	t_data;
 
 
 typedef struct	s_game
 {
-    int     n_NO;
-	int     n_SO;
-	int     n_WE;
-	int     n_EA;
+    int     n_no;
+	int     n_so;
+	int     n_we;
+	int     n_ea;
     int     bol;
     t_map	map;
     t_file  file;
@@ -90,4 +90,11 @@ void	ft_save_line(t_game *g, int i, int j, int *k);
 void	last_check(t_game *g);
 void    ft_parse_texture(t_game *game);
 void	ft_innit(t_game *game);
+void	ft_parse_no(t_game	*game, int i, int j);
+void	ft_parse_so(t_game	*game, int i, int j);
+void	ft_parse_we(t_game	*game, int i, int j);
+void	ft_parse_ea(t_game	*game, int i, int j);
+void    ft_parse_path(t_game *game, int i);
+
+void	ft_exit(t_game *game, char *str);
 #endif

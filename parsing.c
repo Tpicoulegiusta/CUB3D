@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:26:54 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/21 14:52:29 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/03/22 16:12:22 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_free_tab(char **tab)
 	{
 		while(tab[i])
 		{
-			if (tab[i])
+			if (tab[i] != NULL)
 				free(tab[i]);
 			i++;
 		}
@@ -44,5 +44,6 @@ int	ft_parsing(int argc, char **argv, t_game *game)
 	}
 	ft_parse_file_3(game);
 	ft_parse_texture(game);
+	// ft_parse_path(game, 0);
 	return (0);
 }

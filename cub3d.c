@@ -6,19 +6,26 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:40:20 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/21 16:01:33 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/03/22 13:26:38 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h" 
 
+void	ft_exit(t_game *game, char *str)
+{
+	printf("%s\n", str);
+	ft_free_tab(game->file.tab_txt);
+	exit(EXIT_FAILURE);	
+}
+
 void	ft_innit(t_game *game)
 {
 	game->bol = 0;
-	game->n_NO = 0;
-	game->n_SO = 0;	
-	game->n_EA = 0;	
-	game->n_WE = 0;	
+	game->n_no = 0;
+	game->n_so = 0;
+	game->n_ea = 0;
+	game->n_we = 0;
 }
 
 int main(int argc, char **argv)

@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 11:10:59 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/21 15:19:27 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/03/22 16:14:51 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ void	last_check(t_game *g)
 	int	j;
 
 	i = -1;
-	//g->bol = 0;
 	while(g->file.all_file[++i])
 	{
 		j = 0;
