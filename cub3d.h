@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:41:49 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/21 12:41:52 by rbulanad         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:17:11 by rbulanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <string.h>
 # include <math.h>
 # include <stdbool.h>
-# define HEIGHT 700
-# define WIDTH 1400
+# define HEIGHT 480
+# define WIDTH 640
 # define RED 0x00FF0000
 # define GREEN 0x0000FF00
 # define BLUE 0x000000FF
@@ -79,6 +79,8 @@ typedef struct	s_data
 	double	drawEnd;
 	int	lineHeight;
 	int	x;
+	void	*buffer;
+	int	*texture[8];
 
 }		t_data;
 
