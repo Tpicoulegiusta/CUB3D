@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:41:49 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/22 15:56:21 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/03/25 16:22:51 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,10 @@ typedef	struct s_data
 
 typedef struct	s_game
 {
+	int		no_pos;
+	int		so_pos;
+	int		we_pos;
+	int		ea_pos;
     int     n_no;
 	int     n_so;
 	int     n_we;
@@ -95,6 +99,7 @@ void	ft_parse_so(t_game	*game, int i, int j);
 void	ft_parse_we(t_game	*game, int i, int j);
 void	ft_parse_ea(t_game	*game, int i, int j);
 void    ft_parse_path(t_game *game, int i);
+void    ft_num_path(t_game *game, int i, int j);
 
 void	ft_exit(t_game *game, char *str);
 #endif

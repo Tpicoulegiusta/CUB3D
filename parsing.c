@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 16:26:54 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/22 16:12:22 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/03/25 16:17:22 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ int	ft_parsing(int argc, char **argv, t_game *game)
 	}
 	ft_parse_file_3(game);
 	ft_parse_texture(game);
-	// ft_parse_path(game, 0);
+	ft_parse_path(game, 0);
+	ft_parse_path(game, 1);
+	ft_parse_path(game, 2);
+	ft_parse_path(game, 3);
 	return (0);
 }

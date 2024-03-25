@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:40:20 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/22 13:26:38 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/03/25 14:24:14 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,16 @@ void	ft_exit(t_game *game, char *str)
 
 void	ft_innit(t_game *game)
 {
+	
 	game->bol = 0;
 	game->n_no = 0;
 	game->n_so = 0;
 	game->n_ea = 0;
 	game->n_we = 0;
+	game->no_pos = 0;
+	game->so_pos = 0;
+	game->we_pos = 0;
+	game->ea_pos = 0;
 }
 
 int main(int argc, char **argv)
