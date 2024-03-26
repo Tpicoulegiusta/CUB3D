@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:41:49 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/25 14:17:11 by rbulanad         ###   ########.fr       */
+/*   Updated: 2024/03/26 17:04:02 by rbulanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,24 @@ typedef struct	s_game
     
 }	t_game;
 
+typedef struct	s_tex
+{
+	void	*mlx;
+	void	*mlx_win;
+	void	*img;
+	char	*addr;
+	int	bpp;
+	int	line_length;
+	int	endian;
+	char	*path;
+}		t_tex;
+
 typedef struct	s_data
 {
+	t_tex	tex_n;
+	t_tex	tex_s;
+	t_tex	tex_e;
+	t_tex	tex_w;
 	void	*mlx;
 	void	*mlx_win;
 	void	*img;
@@ -79,8 +95,16 @@ typedef struct	s_data
 	double	drawEnd;
 	int	lineHeight;
 	int	x;
+	int	y2;
 	void	*buffer;
 	int	*texture[8];
+	double	wallX; //where exactly the wall was hit
+	int	texNum;
+	int	texX;
+	int	texY;
+	double	step;
+	double	texPos;
+	int	color;
 
 }		t_data;
 

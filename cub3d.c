@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:40:20 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/25 15:44:50 by rbulanad         ###   ########.fr       */
+/*   Updated: 2024/03/26 17:49:38 by rbulanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,23 @@ void	my_pixelput(t_data *data, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
+void	tex_init(t_tex *tex, void *mlx) ///////texture struc init
+{
+	int	x;
+	tex->img = mlx_xpm_file_to_image(mlx, tex->path, &x, &x);
+	if (!tex->img)
+		exit(1);
+	tex->addr = mlx_get_data_addr(tex->img, &tex->bpp, &tex->line_length, &tex->endian);
+}
+
+int	my_pixel_get_color(t_tex *tex, int x, int y)
+{
+	char	*color;
+
+	color = tex->addr + (y * tex->line_length + x * (tex->bpp / 8));
+	return (*(unsigned int *)color);
+}
+
 void	verLine(t_data *data, int start, int end, int color)
 {
 	int	y;
@@ -89,7 +106,7 @@ void	igor(t_data *data, int height)
 
 int	movement(int key, t_data *data)
 {
-	printf("%d\n", key);
+	//printf("%d\n", key);
 	double oldDirX;
 	double oldPlaneX;
 	if (key == 119)//up
@@ -118,6 +135,7 @@ int	movement(int key, t_data *data)
 	}
 	if (key == 97)//left
 	{
+
 		//both camera direction and camera plane must be rotated
 		oldDirX = data->dirX;
 		data->dirX = data->dirX * cos(data->rotSpeed) - data->dirY * sin(data->rotSpeed);
@@ -213,36 +231,42 @@ void	ft_draw(t_data *data)
 	if (data->drawEnd >= HEIGHT)
 		data->drawEnd = HEIGHT - 1;
 	//texturing calcs
-	int texNum = Map[data->mapX][data->mapY] - 1;
+	data->texNum = Map[data->mapX][data->mapY] - 1;
 	//calc value of wallX
-	double	wallX; //where exactly the wall was hit
 	if (data->side == 0)
-		wallX = data->posY + data->perpWallDist * data->rayDirY;
+		data->wallX = data->posY + data->perpWallDist * data->rayDirY;
 	else
-		wallX = data->posX + data->perpWallDist * data->rayDirX;
-	wallX -= floor ((wallX));
+		data->wallX = data->posX + data->perpWallDist * data->rayDirX;
+	data->wallX -= floor(data->wallX);
 	//x coord on the texture
-	int	texX = (int)(wallX * (double)texWidth);
+	data->texX = (int)(data->wallX * (double)texWidth);
 	if (data->side == 0 && data->rayDirX > 0)
-		texX = texWidth - texX - 1;
+		data->texX = texWidth - data->texX - 1;
 	if (data->side == 1 && data->rayDirY < 0)
-		texX = texWidth - texX - 1;
+		data->texX = texWidth - data->texX - 1;
 	//how much to increase the texture coord per screen pixel
-	double step = 1.0 * texHeight / data->lineHeight;
+	data->step = 1.0 * texHeight / data->lineHeight;
 	//Starting texture coord
-	double texPos = (data->drawStart - HEIGHT / 2 + data->lineHeight) * step;
-	int y2 = data->drawStart;
-	while (y2 < data->drawEnd)
+	data->texPos = (data->drawStart - HEIGHT / 2 + data->lineHeight / 2) * data->step;
+	data->y2 = data->drawStart;
+	while (data->y2 < data->drawEnd)
 	{
 		//cast the texture coord to int and mask with (texheight - 1) in case of overflow
-		int texY = (int)texPos & (texHeight - 1);
-		texPos += step;
-		int color = data->texture[texNum][texHeight * texY + texX];
-		//make color darker for y-sides: R, G and B byte each divided through two with a "shift" and an "and"
+		data->texY = (int)data->texPos & (texHeight - 1);
+		data->texPos += data->step;
+		if (data->side == 0 && data->rayDirX < 0) //N
+			data->color = my_pixel_get_color(&data->tex_n , data->texX, data->texY);
+		else if (data->side == 0 && data->rayDirX > 0) //S
+			data->color = my_pixel_get_color(&data->tex_s , data->texX, data->texY);
+		else if (data->side == 1 && data->rayDirY > 0) //E
+			data->color = my_pixel_get_color(&data->tex_e, data->texX, data->texY);
+		else if (data->side == 1 && data->rayDirY < 0) //W
+			data->color = my_pixel_get_color(&data->tex_w, data->texX, data->texY);
+		//darken color
 		if (data->side == 1)
-			color = (color >> 1) & 8355711;
-		my_pixelput(data, data->x, y2, color);
-		y2++;
+			data->color = (data->color >> 1) & 8355711;
+		my_pixelput(data, data->x, data->y2, data->color);
+		data->y2++;
 	}
 }
 
@@ -275,33 +299,16 @@ int main()
 	data.dirY = 0; //initial direction vector
 	data.planeX = 0;
 	data.planeY = 0.66; //2D raycaster version of camera plane
-	
 	data.mlx = mlx_init();
-	data.buffer = mlx_new_image(data.mlx, WIDTH, HEIGHT);
-	int	i = -1;
-	while (++i < 8)
-		data.texture[i] = malloc(sizeof(int) * (texWidth * texHeight));
-	int	x = -1;
-	while (++x < texWidth)
-	{
-		int	y = -1;
-		while (++y < texHeight)
-		{
-			int	xorcolor = (x * 256 / texWidth) ^ (y * 256 / texHeight);
-			int	ycolor = y * 256 / texHeight;
-			int	xycolor = y * 128 / texHeight + x * 128 / texWidth;
-			data.texture[0][texWidth * y + x] = 65536 * 254 * (x != y && x != texWidth - y); //flat red texture with black cross
-		    	data.texture[1][texWidth * y + x] = xycolor + 256 * xycolor + 65536 * xycolor; //sloped greyscale
-		    	data.texture[2][texWidth * y + x] = 256 * xycolor + 65536 * xycolor; //sloped yellow gradient
-		    	data.texture[3][texWidth * y + x] = xorcolor + 256 * xorcolor + 65536 * xorcolor; //xor greyscale
-			data.texture[4][texWidth * y + x] = 256 * xorcolor; //xor green
-			data.texture[5][texWidth * y + x] = 65536 * 192 * (x % 16 && y % 16); //red bricks
-			data.texture[6][texWidth * y + x] = 65536 * ycolor; //red gradient
-			data.texture[7][texWidth * y + x] = 128 + 256 * 128 + 65536 * 128; //flat grey texture
-		}
-	}
-
 	window(&data);
+	data.tex_n.path = "./textures/NTEX.xpm";
+	data.tex_s.path = "./textures/STEX.xpm";
+	data.tex_e.path = "./textures/ETEX.xpm";
+	data.tex_w.path = "./textures/WTEX.xpm";
+	tex_init(&data.tex_n, data.mlx);
+	tex_init(&data.tex_s, data.mlx);
+	tex_init(&data.tex_e, data.mlx);
+	tex_init(&data.tex_w, data.mlx);
 	raycast(&data);
 	hooks(&data);
 	mlx_loop(data.mlx);
