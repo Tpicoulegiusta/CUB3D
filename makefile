@@ -6,7 +6,7 @@
 #    By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/13 15:51:24 by tpicoule          #+#    #+#              #
-#    Updated: 2024/03/22 13:38:34 by tpicoule         ###   ########.fr        #
+#    Updated: 2024/03/27 17:57:10 by tpicoule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,9 @@ SOURCES		= cub3d.c \
 			  ft_utils_2.c \
 			  parsing_3.c \
 			  parsing_4.c \
-			  parsing_5.c
+			  parsing_5.c \
+			  parsing_colors.c \
+			  parsing_colors_2.c
 			  
 OBJECTS		= ${SOURCES:.c=.o}
 RM			= rm -f

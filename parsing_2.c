@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 11:52:03 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/14 15:46:53 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/03/26 14:58:01 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int check_args(int argc, char **argv)
         return (1);
     i = ft_strlen(argv[1]) - 4;
 	while (i < ft_strlen(argv[1]) + 1)
-	{	
+	{
         if (argv[1][i++] != '.')
 			return(1);
 		if (argv[1][i++] != 'c')

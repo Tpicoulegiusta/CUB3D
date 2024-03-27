@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 14:53:07 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/25 14:36:40 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/03/27 14:20:18 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void    ft_parse_texture(t_game *g)
 
 void	ft_parse_no(t_game	*game, int i, int j)
 {
-	///ranger ici via un //
 	while(game->file.tab_txt[++i])
 	{
 		j = 0;

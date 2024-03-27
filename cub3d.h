@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:41:49 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/25 16:22:51 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/03/27 18:29:58 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,16 @@ typedef struct	s_game
 	int		so_pos;
 	int		we_pos;
 	int		ea_pos;
+	int		f_pos;
+	int		c_pos;
     int     n_no;
 	int     n_so;
 	int     n_we;
 	int     n_ea;
+	int		n_f;
+	int		n_c;
     int     bol;
+	int		bool;
     t_map	map;
     t_file  file;
 	t_data	data;
@@ -79,7 +84,7 @@ char	*ft_substr2(char *s, int start, int end);
 //static char	*ft_get_stocked(int fd, char *stock);
 char	*get_next_line(int fd);
 //////////////////////////////////////////////////////////////////////
-/////////////////parse_file_1_2///////////////////////////////////////////
+/////////////////parse_file_1_2....///////////////////////////////////////////
 int     parse_file(char **argv, t_game *game);
 char	*ft_strjoinfree2(char *stock, char *tmp);
 int	    ft_counti(char *s, char c);
@@ -98,8 +103,18 @@ void	ft_parse_no(t_game	*game, int i, int j);
 void	ft_parse_so(t_game	*game, int i, int j);
 void	ft_parse_we(t_game	*game, int i, int j);
 void	ft_parse_ea(t_game	*game, int i, int j);
-void    ft_parse_path(t_game *game, int i);
-void    ft_num_path(t_game *game, int i, int j);
+char    *ft_parse_path(t_game *game, int i, int j);
+void	ft_parse_pos(t_game *game);
+void    ft_check_path(char *path);
+void	ft_parse_colors(t_game *game);
+void    ft_search_colors(t_game *game);
+void    ft_parsing_colors(t_game *game);
+void	ft_parse_f(t_game   *game, int i, int j);
+void	ft_parse_c(t_game *game, int i, int j);
+void	ft_parse_f_c_pos(t_game *g);
+char    *ft_parse_path_f_c(t_game *game, int i, int j);
 
 void	ft_exit(t_game *game, char *str);
+void	ft_exit_2(t_game *game, char *str);
+void	ft_free_obj(t_game *game);
 #endif
