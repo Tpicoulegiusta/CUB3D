@@ -6,7 +6,7 @@
 #    By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/13 15:51:24 by tpicoule          #+#    #+#              #
-#    Updated: 2024/03/27 17:57:10 by tpicoule         ###   ########.fr        #
+#    Updated: 2024/03/28 12:46:58 by tpicoule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SOURCES		= cub3d.c \
 			  get_next_line.c \
 			  get_next_line_utils.c \
 			  ft_utils_2.c \
+			  ft_utils_3.c \
 			  parsing_3.c \
 			  parsing_4.c \
 			  parsing_5.c \

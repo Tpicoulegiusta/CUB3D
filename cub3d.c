@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:40:20 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/27 18:35:11 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/03/28 16:34:44 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	ft_innit(t_game *game)
 	game->n_c = 0;
 	game->f_pos = 0;
 	game->c_pos = 0;
-	
 }
 
 int main(int argc, char **argv)
