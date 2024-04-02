@@ -13,7 +13,11 @@ NAME		= cub3d
 
 SOURCES		= cub3d.c \
 			  parsing.c \
-			  win_manage.c
+			  win_manage.c \
+			  inits.c \
+			  algo.c \
+			  mlx_utils.c \
+			  inputs.c
 OBJECTS		= ${SOURCES:.c=.o}
 RM			= rm -f
 CC			= gcc
