@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:41:49 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/28 16:34:35 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/02 12:09:36 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ void	ft_parse_f_c_pos(t_game *g);
 char    *ft_parse_path_f_c(t_game *game, int i, int j);
 int		ft_isdigit(int c);
 int		ft_isalpha(int i);
+int		ft_atoi(const char *str);
 
 void	ft_exit(t_game *game, char *str);
 void	ft_exit_2(t_game *game, char *str);
