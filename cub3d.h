@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:41:49 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/02 14:58:19 by rbulanad         ###   ########.fr       */
+/*   Updated: 2024/04/02 16:25:41 by rbulanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,9 @@ int	getcolor(t_tex *tex, int x, int y);
 void	image_maker(t_data *data);
 void	window(t_data *data);
 void	tex_init(t_tex *tex, void *mlx);
-void	left_right(t_data *data, int key);
+void	right(t_data *data, int key);
+void	left(t_data *data, int key);
+void	up_down(t_data *data, int key, int Map[24][24]);
+void	strafing(t_data *data, int key, int Map[24][24]);
 
 #endif

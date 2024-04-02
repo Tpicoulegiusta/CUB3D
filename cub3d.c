@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:40:20 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/02 14:58:07 by rbulanad         ###   ########.fr       */
+/*   Updated: 2024/04/02 16:26:36 by rbulanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,43 +55,6 @@ void	ceiling_floor(t_data *data, int height)
 	verLine(data, height / 2, height, FLOOR);
 }
 
-int	movement(int key, t_data *data)
-{
-	//printf("%d\n", key);
-
-	left_right(data, key);
-	if (key == 119)//up
-	{
-		if(Map[(int)(data->posX + data->dirX * data->moveSpeed)][(int)data->posY] == false)
-			data->posX += data->dirX * data->moveSpeed;
-		if(Map[(int)data->posX][(int)(data->posY + data->dirY * data->moveSpeed)] == false)
-			data->posY += data->dirY * data->moveSpeed;
-	}
-	if (key == 115)//down
-	{
-		if(Map[(int)(data->posX - data->dirX * data->moveSpeed)][(int)data->posY] == false)
-			data->posX -= data->dirX * data->moveSpeed;
-		if(Map[(int)data->posX][(int)(data->posY - data->dirY * data->moveSpeed)] == false)
-			data->posY -= data->dirY * data->moveSpeed;
-	}
-
-	if (key == 101)//strafe right
-	{
-		if(Map[(int)(data->posX + data->planeX * data->moveSpeed)][(int)data->posY] == false)
-			data->posX += data->planeX * data->moveSpeed;
-		if(Map[(int)data->posX][(int)(data->posY + data->planeY * data->moveSpeed)] == false)
-			data->posY += data->planeY * data->moveSpeed;
-	}
-	if (key == 113)//strafe left
-	{
-		if(Map[(int)(data->posX - data->planeX * data->moveSpeed)][(int)data->posY] == false)
-			data->posX -= data->planeX * data->moveSpeed;
-		if(Map[(int)data->posX][(int)(data->posY - data->planeY * data->moveSpeed)] == false)
-			data->posY -= data->planeY * data->moveSpeed;
-	}
-	raycast(data);
-	return (0);
-}
 
 void	ft_draw(t_data *data)
 {
@@ -102,6 +65,17 @@ void	ft_draw(t_data *data)
 	texture_render(data);
 }
 
+int	movement(int key, t_data *data)
+{
+	//printf("%d\n", key);
+	right(data, key);
+	left(data, key);
+	up_down(data, key, Map);
+	strafing(data, key, Map);
+	raycast(data);
+	return (0);
+}
+
 void	raycast(t_data *data)
 {
 	//printf("x:%f, y:%f\n", data->posX, data->posY);
@@ -110,7 +84,6 @@ void	raycast(t_data *data)
 	{
 		ceiling_floor(data, HEIGHT);
 		ft_draw(data);
-		//speed modifiers
 		data->moveSpeed = 0.20;
 		data->rotSpeed = 0.15;
 	}
