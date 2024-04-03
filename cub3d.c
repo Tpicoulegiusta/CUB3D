@@ -6,13 +6,13 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:40:20 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/02 16:26:36 by rbulanad         ###   ########.fr       */
+/*   Updated: 2024/04/03 15:09:45 by rbulanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	Map[mapWidth][mapHeight] =
+int	Map[MAPWIDTH][MAPHEIGHT] =
 {
 	{4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,7,7,7,7,7,7,7,7},
 	{4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0,7},
@@ -40,7 +40,7 @@ int	Map[mapWidth][mapHeight] =
 	{4,4,4,4,4,4,4,4,4,4,1,1,1,2,2,2,2,2,2,3,3,3,3,3}
 };
 
-void	verLine(t_data *data, int start, int end, int color)
+void	verline(t_data *data, int start, int end, int color)
 {
 	int	y;
 
@@ -51,10 +51,9 @@ void	verLine(t_data *data, int start, int end, int color)
 
 void	ceiling_floor(t_data *data, int height)
 {
-	verLine(data, 0, height / 2, CEILING);
-	verLine(data, height / 2, height, FLOOR);
+	verline(data, 0, height / 2, CEILING);
+	verline(data, height / 2, height, FLOOR);
 }
-
 
 void	ft_draw(t_data *data)
 {
@@ -84,8 +83,8 @@ void	raycast(t_data *data)
 	{
 		ceiling_floor(data, HEIGHT);
 		ft_draw(data);
-		data->moveSpeed = 0.20;
-		data->rotSpeed = 0.15;
+		data->movespeed = 0.20;
+		data->rotspeed = 0.15;
 	}
 	mlx_put_image_to_window(data->mlx, data->mlx_win, data->img, 0, 0);
 }
