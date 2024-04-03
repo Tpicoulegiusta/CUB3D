@@ -6,85 +6,92 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 14:03:25 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/15 16:33:54 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/03 14:59:13 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_counti(char *s, char c)
+static char	*ft_strsplitdup(char *src, int min, int max)
 {
-	int	i;
-	int	k;
+	char	*str;
+	int		i;
 
-	k = 0;
+	i = max - min;
+	str = malloc(sizeof(char) * (i + 1));
 	i = 0;
-	if (s[i] == c)
-		i++;
-	if (!s[i])
-		return (0);
-	if (s[0] != c || s[i + 1] == '\0')
-		k++;
-	while (s[i])
+	if (str == NULL)
+		return (NULL);
+	while (min < max)
 	{
-		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
-			k++;
+		str[i] = src[min];
 		i++;
+		min++;
 	}
-	if (s[0] == c && k > 0)
-		k++;
-	return (k);
+	str[i] = '\0';
+	return (str);
 }
 
-char	**ft_countj(char **tabtab, char *s, char c)
+static int	ischarset(char c, char charset)
 {
-	int	i;
-	int	j;
-	int	x;
+	if (charset != '\0')
+	{
+		if (c == charset)
+			return (1);
+	}
+	return (0);
+}
+
+static int	kuantanamo(char *str, char charset)
+{
+	int		i;
+	int		mot;
 
 	i = 0;
-	j = 0;
-	x = 0;
-	while (s[i])
+	mot = 0;
+	while (str[i])
 	{
-		while (s[i] == c)
+		while (ischarset(str[i], charset) && str[i])
 			i++;
-		j = i;
-		if (s[i])
-		{
-			while (s[i] != c && s[i])
-				i++;
-			tabtab [x] = ft_substr(s, j, i - j);
-			x++;
-		}
+		if (str[i])
+			mot++;
+		while (!ischarset(str[i], charset) && str[i])
+			i++;
 	}
-	tabtab [x] = NULL;
-	return (tabtab);
+	return (mot);
 }
 
 char	**ft_split(char *s, char c)
 {
-	char	**tabtab;
+	int		i;
+	int		j;
+	int		start;
+	char	**tab;
 
 	if (!s)
+		return (NULL);
+	tab = malloc(sizeof(char *) * (kuantanamo((char *)s, c) + 1));
+	if (tab == NULL)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s[i])
 	{
-		tabtab = malloc(sizeof(char) * 1);
-		if (!tabtab)
-			return (0);
-		tabtab[0] = 0;
-		return (tabtab);
+		while (ischarset(s[i], c) && s[i])
+			i++;
+		start = i;
+		while (!ischarset(s[i], c) && s[i])
+			i++;
+		if (start != i)
+			tab[j++] = ft_strsplitdup((char *)s, start, i);
 	}
-	tabtab = malloc(sizeof(char *) * (ft_counti(s, c) + 1));
-	if (!tabtab)
-		return (0);
-	tabtab = ft_countj(tabtab, s, c);
-	return (tabtab);
+	tab[j] = NULL;
+	return (tab);
 }
 
 char	*ft_substr(char *s, int start, int len)
 {
 	char	*s1;
-	//int		i;
 	int		j;
 
 	if (!s)
@@ -97,7 +104,6 @@ char	*ft_substr(char *s, int start, int len)
 		s1 = malloc(sizeof(char) * (ft_strlen(s + start) + 1));
 	if (!s1)
 		return (NULL);
-	//i = start;
 	j = 0;
 	while (j < len && s[start])
 	{

@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:41:49 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/02 12:09:36 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/03 16:28:12 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct s_file
     char    **all_file;
     char    **tab_txt;
     char	**tab_colors;
+	int		**rgb_f;
+	int		**rgb_c;
     char    **tab_map;
 }   t_file;
 
