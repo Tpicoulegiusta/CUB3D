@@ -17,7 +17,8 @@ SOURCES		= cub3d.c \
 			  inits.c \
 			  algo.c \
 			  mlx_utils.c \
-			  inputs.c
+			  inputs.c \
+			  colors.c
 OBJECTS		= ${SOURCES:.c=.o}
 RM			= rm -f
 CC			= gcc

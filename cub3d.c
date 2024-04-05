@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:40:20 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/03 15:09:45 by rbulanad         ###   ########.fr       */
+/*   Updated: 2024/04/04 18:28:06 by rbulanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,10 @@ void	verline(t_data *data, int start, int end, int color)
 
 void	ceiling_floor(t_data *data, int height)
 {
-	verline(data, 0, height / 2, CEILING);
-	verline(data, height / 2, height, FLOOR);
+	data->ceiling = create_trgb(0, 84, 161, 255);
+	data->floor = create_trgb(0 ,135, 70, 14);
+	verline(data, 0, height / 2, data->ceiling);
+	verline(data, height / 2, height, data->floor);
 }
 
 void	ft_draw(t_data *data)
