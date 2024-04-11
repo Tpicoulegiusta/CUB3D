@@ -6,11 +6,21 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 11:10:59 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/22 16:14:51 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/04 16:45:43 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+static int	ft_count_lines(char **all_file)
+{
+	int	i;
+
+	i = 0;
+	while (all_file[i])
+		i++;
+	return (i);
+}
 
 int parse_file(char **argv, t_game *game)
 {
@@ -37,8 +47,10 @@ int parse_file(char **argv, t_game *game)
 	free(tab);
 	if (i == 0)
 		return (1);
+	game->size_tab = ft_count_lines(game->file.all_file);
 	return (0);
 }
+
 int	ft_parse_file_2(t_game *game)
 {
 	int	i;

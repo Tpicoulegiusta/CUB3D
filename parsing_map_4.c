@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   parsing_map_4.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 15:22:19 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/10 14:32:14 by tpicoule         ###   ########.fr       */
+/*   Created: 2024/04/10 15:31:22 by tpicoule          #+#    #+#             */
+/*   Updated: 2024/04/11 13:25:24 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-char	*ft_strjoinfree2(char *stock, char *tmp)
-{
-	char	*str;
-
-	str = ft_strjoin(stock, tmp);
-	if (stock)
-		free (stock);
-	return (str);
-}
+// void	ft_alex_3(t_game *game, int k)
+// {
+//     int i;
+//     int j;
+//     (void)k;
+//     i = 0;
+//     j = 0;
+//     while(game->file.cpy_map[i])
+//     {
+//         j = 0;
+//         while(game->file.cpy_map[i][j])
+//         {
+//             game->file.cpy_cpy[i][j] = game->file.cpy_map[i][j];
+//             j++;
+//         }
+//         game->file.cpy_cpy[i][j] = '\0';
+//         i++;
+//     }
+//     i = 0;
+// }

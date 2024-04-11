@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:41:49 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/03 16:28:12 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/11 16:42:57 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,11 @@ typedef struct s_file
     char    **all_file;
     char    **tab_txt;
     char	**tab_colors;
-	int		**rgb_f;
-	int		**rgb_c;
+	int		rgb_f_c[6];
     char    **tab_map;
+	char	**map;
+	char	**cpy_map;
+	//char	**cpy_cpy;
 }   t_file;
 
 typedef	struct s_data
@@ -66,6 +68,16 @@ typedef struct	s_game
 	int		n_c;
     int     bol;
 	int		bool;
+	int		tab_i;
+	int		size_tab;
+	int		last_line;
+	int		first_line;
+	int		x_player;
+	int		y_player;
+	int		boool;
+	char	player;
+	int		size_max;
+	int		long_line;
     t_map	map;
     t_file  file;
 	t_data	data;
@@ -118,6 +130,23 @@ char    *ft_parse_path_f_c(t_game *game, int i, int j);
 int		ft_isdigit(int c);
 int		ft_isalpha(int i);
 int		ft_atoi(const char *str);
+int		ft_isprint(int c);
+void 	ft_last_line(t_game *game, int j);
+void	ft_first_line(t_game *game, int j);
+void	ft_check_line(char *str);
+void	ft_check_left_right(t_game *game);
+void    ft_pre_check(t_game *game);
+void    ft_check_inside(t_game *game);
+void    ft_check_inside_2(t_game *game);
+void	ft_stock_map(t_game *game);
+void	ft_player(t_game *game);
+void	ft_create_cpy(t_game *game);
+//void    ft_inside_walls(t_game *game);
+//void	ft_virus(t_game *game, int x, int y);
+void	ft_alex(t_game *game);
+//void	ft_alex_2(t_game *game, int k);
+//void	ft_alex_3(t_game *game, int k);
+void	ft_z_check(t_game *game);
 
 void	ft_exit(t_game *game, char *str);
 void	ft_exit_2(t_game *game, char *str);

@@ -6,35 +6,17 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 17:25:38 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/03 16:39:54 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/11 14:09:03 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-// void	ft_atoi_me_pls(char	**tab_p_colors)
-// {
-// 	int	i;
-	
-// 	i = 0;
-// 	while(tab_p_colors[i])
-// 	{
-// 		if (ft_atoi(tab_p_colors[i]) < 0 || ft_atoi(tab_p_colors[i]) >= 255)
-// 			i++;
-// 		else
-// 		{
-// 			printf("Erreur path colors_digit_atoi\n");
-// 			exit(EXIT_FAILURE);
-// 		}
-// 	}
-// }
 
 void	ft_check_one(char  *tab_p_color)
 {
 	int i;
 
 	i = 0;
-	printf("tab == '%s'\n", tab_p_color);
 	while (tab_p_color[i])
 	{
 		while(tab_p_color[i] && (tab_p_color[i] == ' ' || tab_p_color[i] == '\t'))
@@ -51,16 +33,23 @@ void	ft_check_one(char  *tab_p_color)
 	}
 }
 
-void	ft_check_nbr(nbr)
+void	ft_rgb_f_c(int nbr, t_game *game)
+{
+	game->file.rgb_f_c[game->tab_i] = nbr;
+	game->tab_i++;
+}
+
+void	ft_check_nbr(int nbr, t_game *game)
 {
 	if (nbr < 0 || nbr > 255)
 	{
 		printf("Erreur path colorsss\n");
 		exit(EXIT_FAILURE);
 	}
+	ft_rgb_f_c(nbr, game);
 }
 
-void	ft_valid_color(char *tab_p_color)
+void	ft_valid_color(char *tab_p_color, t_game *game)
 {
 	int i;
 	int	nbr;
@@ -78,25 +67,20 @@ void	ft_valid_color(char *tab_p_color)
 		while(tab_p_color[i] && (tab_p_color[i] == ' ' || tab_p_color[i] == '\t'))
 			i++;
 	}
-	ft_check_nbr(nbr);
+	ft_check_nbr(nbr, game);
 }
 
-void	ft_check_tree(char *path)
+void	ft_check_tree(char *path, t_game *game)
 {
 	char	**tab_p_colors;
 	int i;
 
 	i = 0;
 	tab_p_colors = ft_split(path, ',');
-	// printf("tab_colors === '%s'\n", tab_p_colors[0]);
-	// printf("tab_colors === '%s'\n", tab_p_colors[1]);
-	// printf("tab_colors === '%s'\n", tab_p_colors[2]);
-	// printf("tab_colors === '%s'\n", tab_p_colors[3]);
-	puts("caca");
 	while(tab_p_colors[i])
 	{
 		ft_check_one(tab_p_colors[i]);
-		ft_valid_color(tab_p_colors[i]);
+		ft_valid_color(tab_p_colors[i], game);
 		i++;
 	}
 	if (i != 3)
@@ -104,6 +88,7 @@ void	ft_check_tree(char *path)
 		printf("Erreur path colorsss\n");
 		exit(EXIT_FAILURE);
 	}
+	
 	ft_free_tab(tab_p_colors);
 }
 
@@ -145,14 +130,13 @@ void	ft_check_two(char *path)
 }
 
 
-void	ft_check_path_f_c(char *path)
+void	ft_check_path_f_c(char *path, t_game *game)
 {
 	int	i;
 
 	i = 0;
 	ft_check_two(path);
-	ft_check_tree(path);
-	puts("caca");
+	ft_check_tree(path, game);
 }
 
 char    *ft_parse_path_f_c(t_game *g, int i, int j)
@@ -175,7 +159,7 @@ char    *ft_parse_path_f_c(t_game *g, int i, int j)
 		while(g->file.tab_colors[i][end] == ' ' || g->file.tab_colors[i][end] == '\t')
 			end--;
 	    path = ft_substr(g->file.tab_colors[i], start, (end - start) + 1);
-		ft_check_path_f_c(path);
+		ft_check_path_f_c(path, g);
 		return (path);
 	}
 	else

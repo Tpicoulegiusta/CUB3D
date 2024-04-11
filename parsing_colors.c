@@ -6,19 +6,11 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 14:25:21 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/03 16:35:18 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/11 14:16:58 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-// void	ft_rgb_f(char *f)
-// {
-// 	// int i;
-
-// 	// i = 0;
-// 	//printf("f == '%s'\n", f);
-// }
 
 void	ft_parse_colors(t_game *game)
 {
@@ -27,7 +19,6 @@ void	ft_parse_colors(t_game *game)
 	ft_parse_f_c_pos(game);
 	game->data.f = ft_parse_path_f_c(game, game->f_pos, 0);
 	game->data.c = ft_parse_path_f_c(game, game->c_pos, 0);
-	//ft_rgb_f(game->data.f);
 }	
 
 void    ft_first_check(t_game *g, int i, int j, int *k)
@@ -90,8 +81,8 @@ void    ft_search_colors(t_game *game)
 	{
 		ft_free_tab(game->file.all_file);
 		ft_free_tab(game->file.tab_txt);
-		ft_free_tab(game->file.tab_colors);      
-		write(2, "Error\nfile problems_colors\n", 28);
+		ft_free_tab(game->file.tab_colors);
+		write(2, "Error\nfile problems_colors2\n", 28);
 	 	exit(EXIT_FAILURE);
 	}
 }
@@ -113,7 +104,7 @@ void    ft_parsing_colors(t_game *g)
 			g->n_c++;
     }
 	if (g->n_f != 1 || g->n_c != 1)
-			ft_exit(g, "file problems_file_colors");
+			ft_exit(g, "file problems_file_colors1");
 	ft_parse_f(g, -1, 0);
 	ft_parse_c(g, -1, 0);
 }

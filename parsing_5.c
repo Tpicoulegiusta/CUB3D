@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 12:05:54 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/03/27 17:08:56 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/04 13:22:30 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,31 +35,16 @@ void	ft_parse_pos(t_game *g)
 	}
 }
 
-// void	ft_check_xpm(char *path)
-// {
-// 	int i;
-
-// 	if (ft_strlen(path) < 5)
-// 	{
-// 		//ft_exit_2//
-// 		printf("erreur pathhh\n");
-// 		exit(EXIT_FAILURE);
-// 	}
-// 	///REDDY AVEC LA MLX/// CHECK LE RETOUR DERREUR DE OPEN .XPM DU PATH///
-// }
-
 void    ft_check_path(char *path)
 {
 	int i;
 
 	i = 0;
 
-	//printf("path[i] === '%s'\n", path);
 	while(path[i])
 	{
 		if(path[i] == ' ' || path[i] == '\t')
 		{
-			//ft_exit_2(game, "erreur path\n");///MARCHE PAS AVEC FT_EXIT_2///
 			printf("erreur path\n");
 			exit(EXIT_FAILURE);
 		}

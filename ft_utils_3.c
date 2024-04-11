@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 12:32:50 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/02 12:09:24 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/04 16:13:34 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,12 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (nb * x);
+}
+
+int	ft_isprint(int c)
+{
+	if (c >= 32 && c <= 126)
+		return (1);
+	else
+		return (0);
 }
