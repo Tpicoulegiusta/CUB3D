@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:40:20 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/11 16:59:25 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/12 13:28:21 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	ft_innit(t_game *game)
 	game->boool = 0;
 	game->size_max = 0;
 	game->long_line = 0;
+	game->look = 0;
 }
 
 int main(int argc, char **argv)
@@ -85,6 +86,7 @@ int main(int argc, char **argv)
 	//puts("caca");
 	ft_last_line(&game, 0);
 	ft_first_line(&game, 0);
+	ft_look_at_me(&game);
 	ft_check_line(game.file.all_file[game.first_line]);
 	ft_check_line(game.file.all_file[game.last_line]);
 	ft_check_left_right(&game);

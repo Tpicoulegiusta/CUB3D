@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:41:49 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/11 16:42:57 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/12 13:33:34 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct s_file
     char    **tab_map;
 	char	**map;
 	char	**cpy_map;
-	//char	**cpy_cpy;
 }   t_file;
 
 typedef	struct s_data
@@ -78,6 +77,7 @@ typedef struct	s_game
 	char	player;
 	int		size_max;
 	int		long_line;
+	int		look;
     t_map	map;
     t_file  file;
 	t_data	data;
@@ -147,6 +147,8 @@ void	ft_alex(t_game *game);
 //void	ft_alex_2(t_game *game, int k);
 //void	ft_alex_3(t_game *game, int k);
 void	ft_z_check(t_game *game);
+void    ft_look_at_me(t_game *game);
+int		ft_isalnum(int c);
 
 void	ft_exit(t_game *game, char *str);
 void	ft_exit_2(t_game *game, char *str);

@@ -6,7 +6,7 @@
 #    By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/13 15:51:24 by tpicoule          #+#    #+#              #
-#    Updated: 2024/04/11 14:07:31 by tpicoule         ###   ########.fr        #
+#    Updated: 2024/04/12 13:11:32 by tpicoule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SOURCES		= cub3d.c \
 			  parsing_map_2.c \
 			  parsing_map_3.c \
 			  parsing_map_4.c
+			  
 			  
 OBJECTS		= ${SOURCES:.c=.o}
 RM			= rm -f
