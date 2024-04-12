@@ -18,11 +18,13 @@ SOURCES		= cub3d.c \
 			  algo.c \
 			  mlx_utils.c \
 			  inputs.c \
-			  colors.c
+			  inputs2.c \
+			  colors.c \
+			  multitouch.c
 OBJECTS		= ${SOURCES:.c=.o}
 RM			= rm -f
 CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -g
 MLX			= -Lmlx -lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz
 
 .c.o:

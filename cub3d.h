@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:41:49 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/04 19:46:22 by rbulanad         ###   ########.fr       */
+/*   Updated: 2024/04/12 14:22:23 by rbulanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <string.h>
 # include <math.h>
 # include <stdbool.h>
-# define HEIGHT 480
-# define WIDTH 640
+# define HEIGHT 700
+# define WIDTH 1100
 # define MAPWIDTH 24
 # define MAPHEIGHT 24
 # define TEXWIDTH 64
@@ -58,10 +58,13 @@ typedef struct s_data
 {
 	t_tex	tex_n;
 	t_tex	tex_s;
+	t_tex	tex_s2;
 	t_tex	tex_e;
+	t_tex	tex_e2;
 	t_tex	tex_w;
-	int		ceiling; //84.161.255
-	int		floor; //135.70.14
+	int		**map;
+	int		ceiling;
+	int		floor;
 	int		bpp;
 	int		line_length;
 	int		endian;
@@ -116,27 +119,35 @@ typedef struct s_data
 }			t_data;
 
 void	data_init(t_data *data);
+void	map_alloc(t_data *data);
+void	map_maker(t_data *data);
 void	hooks(t_data *data);
 void	clear_win(t_data *data);
 void	raycast(t_data *data);
 void	ft_draw(t_data *data);
 void	algo_init(t_data *data);
-void	dda_algo(t_data *data, int Map[24][24]);
+void	dda_algo(t_data *data, int **Map);
 void	pre_dda(t_data *data);
-void	map_render(t_data *data, int Map[24][24]);
+void	map_render(t_data *data, int **Map);
 void	texture_render(t_data *data);
 void	walls_render(t_data *data);
 void	my_pixelput(t_data *data, int x, int y, int color);
 void	image_maker(t_data *data);
 void	window(t_data *data);
 void	tex_init(t_tex *tex, void *mlx);
-void	right(t_data *data, int key);
-void	left(t_data *data, int key);
-void	up_down(t_data *data, int key, int Map[24][24]);
-void	strafing(t_data *data, int key, int Map[24][24]);
+void	upp(t_data *data, int **Map);
+void	down(t_data *data, int **Map);
+void	right(t_data *data);
+void	left(t_data *data);
+void	r_strafing(t_data *data, int **Map);
+void	l_strafing(t_data *data, int **Map);
 int		getcolor(t_tex *tex, int x, int y);
 int		create_trgb(int t, int r, int g, int b);
 int		movement(int key, t_data *data);
+int		ft_keypress(int key, t_data *data);
+int		ft_keyrelease(int key, t_data *data);
+int		hook_loop(t_data *data);
+int		kb_hooks(int key, t_data *data);
 //int	ft_parsing(int argc, char **argv, t_game *game);
 
 #endif
