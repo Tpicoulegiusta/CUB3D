@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 12:32:50 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/04 16:13:34 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/12 14:00:54 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	ft_isdigit(int c)
 	else
 		return (0);
 }
+
 int	ft_atoi(const char *str)
 {
 	int			i;
@@ -57,4 +58,22 @@ int	ft_isprint(int c)
 		return (1);
 	else
 		return (0);
+}
+
+char	*ft_strdup(char *source)
+{
+	int		i;
+	char	*str1;
+
+	str1 = malloc(sizeof(char) * ft_strlen(source) + 1);
+	if (!str1)
+		return (NULL);
+	i = 0;
+	while (i < ft_strlen(source))
+	{
+		str1[i] = source[i];
+		i++;
+	}
+	str1[i] = '\0';
+	return (str1);
 }

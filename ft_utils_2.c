@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 14:03:25 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/03 14:59:13 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/12 16:56:55 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,22 +113,4 @@ char	*ft_substr(char *s, int start, int len)
 	}
 	s1[j] = '\0';
 	return (s1);
-}
-
-char	*ft_strdup(char *source)
-{
-	int		i;
-	char	*str1;
-
-	str1 = malloc(sizeof(char) * ft_strlen(source) + 1);
-	if (!str1)
-		return (NULL);
-	i = 0;
-	while (i < ft_strlen(source))
-	{
-	str1[i] = source[i];
-		i++;
-	}
-	str1[i] = '\0';
-	return (str1);
 }

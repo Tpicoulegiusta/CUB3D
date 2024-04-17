@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 12:05:54 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/04 13:22:30 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/12 14:10:25 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,35 @@
 
 void	ft_parse_pos(t_game *g)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
-	while(g->file.tab_txt[i])
+	while (g->file.tab_txt[i])
 	{
 		j = 0;
-		while(g->file.tab_txt[i][j] == ' ' || g->file.tab_txt[i][j] == '\t')
+		while (g->file.tab_txt[i][j] == ' ' || g->file.tab_txt[i][j] == '\t')
 			j++;
-		if(g->file.tab_txt[i][j] == 'N')
+		if (g->file.tab_txt[i][j] == 'N')
 			g->no_pos = i;
-		if(g->file.tab_txt[i][j] == 'S')
+		if (g->file.tab_txt[i][j] == 'S')
 			g->so_pos = i;
-		if(g->file.tab_txt[i][j] == 'W')
+		if (g->file.tab_txt[i][j] == 'W')
 			g->we_pos = i;
-		if(g->file.tab_txt[i][j] == 'E')
+		if (g->file.tab_txt[i][j] == 'E')
 			g->ea_pos = i;
 		i++;
 	}
 }
 
-void    ft_check_path(char *path)
+void	ft_check_path(char *path)
 {
-	int i;
+	int	i;
 
 	i = 0;
-
-	while(path[i])
+	while (path[i])
 	{
-		if(path[i] == ' ' || path[i] == '\t')
+		if (path[i] == ' ' || path[i] == '\t')
 		{
 			printf("erreur path\n");
 			exit(EXIT_FAILURE);
@@ -52,26 +51,27 @@ void    ft_check_path(char *path)
 	}
 }
 
-char    *ft_parse_path(t_game *g, int i, int j)
+char	*ft_parse_path(t_game *g, int i, int j)
 {
 	int		start;
 	int		end;
 	char	*path;
 
-	while(g->file.tab_txt[i][j] == ' ' || g->file.tab_txt[i][j] == '\t')
+	while (g->file.tab_txt[i][j] == ' ' || g->file.tab_txt[i][j] == '\t')
 		j++;
 	j += 2;
-	while(g->file.tab_txt[i][j] == ' ' || g->file.tab_txt[i][j] == '\t')
+	while (g->file.tab_txt[i][j] == ' ' || g->file.tab_txt[i][j] == '\t')
 		j++;
-	if(g->file.tab_txt[i][j] != '\0')
+	if (g->file.tab_txt[i][j] != '\0')
 	{
 		start = j;
-		while(g->file.tab_txt[i][j] != '\0')
-            j++;
-        end = j - 1;
-		while(g->file.tab_txt[i][end] == ' ' || g->file.tab_txt[i][end] == '\t')
+		while (g->file.tab_txt[i][j] != '\0')
+			j++;
+		end = j - 1;
+		while (g->file.tab_txt[i][end] == ' '
+			|| g->file.tab_txt[i][end] == '\t')
 			end--;
-	    path = ft_substr(g->file.tab_txt[i], start, (end - start) + 1);//peut etre mal free???//
+		path = ft_substr(g->file.tab_txt[i], start, (end - start) + 1);
 		ft_check_path(path);
 		return (path);
 	}
