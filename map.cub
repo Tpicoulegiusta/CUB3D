@@ -1,17 +1,11 @@
+C 0,00,0
+F 10,30,0
+
   EA ./path_to_the_south_texture.xpm
 WE ./path_to_the_west_texture.xpm
 NO      ./path_to_the_east_texture.xpm  
-       SO ./path_to_the_south_texture.xpm
+SO
 
-      C   9,  12 ,  4
-F 10 ,  30 , 0
-
-
-
-
-111
-1N1
-11011
-1111
-
-
+ 1111
+1W0001
+1111111111

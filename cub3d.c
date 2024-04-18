@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:40:20 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/17 16:55:27 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/18 12:56:50 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ft_exit_2(t_game *game, char *str)
 	exit(EXIT_FAILURE);
 }
 
+
 void	ft_free_obj(t_game *game)
 {
 	if (game->data.no)
@@ -37,7 +38,7 @@ void	ft_free_obj(t_game *game)
 	if (game->data.we)
 		free(game->data.we);
 	if (game->data.ea)
-		free(game->data.ea);
+	 	free(game->data.ea);
 	if (game->data.f)
 		free(game->data.f);
 	if (game->data.c)
@@ -80,6 +81,7 @@ int	main(int argc, char **argv)
 
 	i = 0;
 	ft_innit(&game);
+	ft_innit_obj(&game);
 	if (ft_parsing(argc, argv, &game) != 0)
 		return (1);
 	ft_void_reunit(&game);

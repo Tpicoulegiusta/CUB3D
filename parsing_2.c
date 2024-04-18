@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 11:52:03 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/12 14:06:03 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/18 12:59:18 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int	check_args(int argc, char **argv)
 	return (0);
 }
 
-//la map est elle un fichier ouvrable ou non ++ la map est elle un dossier//
 int	open_file(char **argv)
 {
 	int	can;

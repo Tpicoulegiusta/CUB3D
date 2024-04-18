@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:46:53 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/17 17:07:56 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/18 14:21:32 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void    ft_repair(t_game *game)
 	game->nb_line = count;
 	i = 0;
 	game->tab_tab = malloc(sizeof(char *) * (count + 2));
-	while(i < count)
+	while(i <= count)
 	{
 		start = j;
 		while(game->file.tab1[j] != '\n' && game->file.tab1[j] != '\0')
@@ -48,7 +48,7 @@ void    ft_repair(t_game *game)
 	while(game->file.tab1[j])
 	{
 		k = 0;
-		while(game->file.tab1[j] != '\n' && game->file.tab1[j] != '\0')
+		while(game->file.tab1[j] != '\0' && game->file.tab1[j] != '\n')
 		{
 			game->tab_tab[i][k] = game->file.tab1[j];
 			j++;
@@ -131,9 +131,13 @@ void	ft_last_man(t_game *game)
 	{
 		if(game->tab_tab[i][j] == '\n')
 		{
-			printf("Error_backslah");
+			printf("Error_backslah\n");
 			exit(EXIT_FAILURE);
 		}
 		i++;
 	}
 }
+
+// pas de \n attention \brief ddd
+// Error_backslah wtf ?? :O
+// Erreur t_p_color colorz Oooohhh

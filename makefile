@@ -6,7 +6,7 @@
 #    By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/13 15:51:24 by tpicoule          #+#    #+#              #
-#    Updated: 2024/04/15 13:54:41 by tpicoule         ###   ########.fr        #
+#    Updated: 2024/04/18 13:43:31 by tpicoule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,13 +32,14 @@ SOURCES		= cub3d.c \
 			  parsing_map_3.c \
 			  parsing_map_4.c \
 			  parsing_reunion.c \
-			  repair.c
+			  repair.c \
+			  innit_obj.c
 			  
 			  
 OBJECTS		= ${SOURCES:.c=.o}
 RM			= rm -f
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS		= -Wall -Wextra -Werror -g #-fsanitize=address
 #MLX			= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 .c.o:
