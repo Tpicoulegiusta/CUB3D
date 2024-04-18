@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 14:23:38 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/12 14:31:03 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/18 14:25:34 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,6 @@ void	ft_player(t_game *game)
 			{
 				game->x_player = j;
 				game->y_player = i;
-				//printf("x = %d, y = %d\n", game->x_player, game->y_player);//
 			}
 			j++;
 		}

@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:22:19 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/10 14:32:14 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/18 15:26:41 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,33 @@ char	*ft_strjoinfree2(char *stock, char *tmp)
 	if (stock)
 		free (stock);
 	return (str);
+}
+
+void	ft_reduce_2(t_game *game)
+{
+	int	i;
+	int	j;
+	int	k;
+
+	i = 0;
+	j = 0;
+	while (game->file.tab1[j])
+	{
+		k = 0;
+		while (game->file.tab1[j] != '\0' && game->file.tab1[j] != '\n')
+		{
+			game->tab_tab[i][k] = game->file.tab1[j];
+			j++;
+			k++;
+		}
+		if (game->file.tab1[j] == '\n')
+		{
+			game->tab_tab[i][k] = '\n';
+			k++;
+			j++;
+		}
+		game->tab_tab[i][k] = '\0';
+		i++;
+	}
+	game->tab_tab[i] = NULL;
 }

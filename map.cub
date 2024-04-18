@@ -4,7 +4,7 @@ F 10,30,0
   EA ./path_to_the_south_texture.xpm
 WE ./path_to_the_west_texture.xpm
 NO      ./path_to_the_east_texture.xpm  
-SO
+       SO ./path_to_the_south_texture.xpm
 
  1111
 1W0001

@@ -6,13 +6,11 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 11:10:59 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/18 13:34:11 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/18 14:28:31 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-int mini_free(char **str); // NOREM
 
 static int	ft_count_lines(char **all_file)
 {
@@ -50,14 +48,6 @@ int	parse_file(char **argv, t_game *game)
 	game->size_tab = ft_count_lines(game->file.all_file);
 	return (0);
 }
-
-// int mini_free(char **str)
-// {
-// 	printf("Here babababa\n");
-// 	free(*str);
-// 	*str = NULL;
-// 	return (1);
-// }
 
 int	ft_parse_file_2(t_game *game)
 {
