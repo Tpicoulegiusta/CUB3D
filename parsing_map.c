@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 15:38:07 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/12 14:48:39 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/22 13:28:27 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	ft_check_line(char *str)
 		j++;
 	if (str[j] != '\0' && str[j] != '\n')
 	{
-		printf("Erreur on line map\n");
+		printf("Error on line map1\n");
 		exit(EXIT_FAILURE);
 	}
 }

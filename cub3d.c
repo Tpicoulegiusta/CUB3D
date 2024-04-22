@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:40:20 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/18 15:33:29 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/22 13:42:08 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 	int		i;
+	int x = 0;
 
 	i = 0;
 	ft_innit(&game);
@@ -84,5 +85,10 @@ int	main(int argc, char **argv)
 	if (ft_parsing(argc, argv, &game) != 0)
 		return (1);
 	ft_void_reunit(&game);
+	while(game.file.map[x])
+	{
+		printf("map == '%s'\n", game.file.map[x]);
+		x++;
+	}
 	ft_freez(&game);
 }

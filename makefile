@@ -6,11 +6,11 @@
 #    By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/13 15:51:24 by tpicoule          #+#    #+#              #
-#    Updated: 2024/04/18 13:43:31 by tpicoule         ###   ########.fr        #
+#    Updated: 2024/04/19 15:17:34 by tpicoule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= cub3d
+NAME		= cub3D
 
 SOURCES		= cub3d.c \
 			  parsing.c \
