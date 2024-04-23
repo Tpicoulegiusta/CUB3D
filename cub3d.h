@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:41:49 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/18 16:26:11 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/23 16:37:47 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,27 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+# include <math.h>
+# include <stdbool.h>
+# include "mlx/mlx.h"
+# define HEIGHT 700
+# define WIDTH 1100
+# define TEXWIDTH 64
+# define TEXHEIGHT 64
+# define CEILING 0x054A1FF
+# define FLOOR 0x087460E
+
+typedef struct s_tex
+{
+	void	*mlx;
+	void	*mlx_win;
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		line_length;
+	int		endian;
+	char	*path;
+}		t_tex;
 
 typedef struct s_file
 {
@@ -37,12 +58,65 @@ typedef struct s_file
 
 typedef struct s_data
 {
-	char	*no;
-	char	*so;
-	char	*we;
-	char	*ea;
 	char	*f;
 	char	*c;
+	t_tex	tex_n;
+	t_tex	tex_s;
+	t_tex	tex_e;
+	t_tex	tex_w;
+	int		ceiling;
+	int		floor;
+	int		bpp;
+	int		line_length;
+	int		endian;
+	int		map_x;
+	int		map_y;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
+	int		lineheight;
+	int		x;
+	int		y2;
+	int		texnum;
+	int		tex_x;
+	int		tex_y;
+	int		*texture[8];
+	int		color;
+	char	*addr;
+	void	*mlx;
+	void	*mlx_win;
+	void	*img;
+	void	*buffer;
+	bool	up;
+	bool	down;
+	bool	left;
+	bool	right;
+	bool	l_strafe;
+	bool	r_strafe;
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+	double	movespeed;
+	double	rotspeed;
+	double	camera_x;
+	double	raydir_x;
+	double	raydir_y;
+	double	sidedist_x;
+	double	sidedist_y;
+	double	deltadistx;
+	double	deltadisty;
+	double	perpwalldist;
+	double	drawstart;
+	double	drawend;
+	double	wall_x;
+	double	step;
+	double	tex_pos;
+	double	old_dirx;
+	double	old_planex;
 }	t_data;
 
 typedef struct s_game
@@ -60,7 +134,7 @@ typedef struct s_game
 	int		n_f;
 	int		n_c;
 	int		bol;
-	int		bool;
+	int		flag;
 	int		tab_i;
 	int		size_tab;
 	int		last_line;
@@ -154,4 +228,37 @@ void	ft_reduce_2(t_game *game);
 void	ft_exit(t_game *game, char *str);
 void	ft_exit_2(t_game *game, char *str);
 void	ft_free_obj(t_game *game);
+
+//REDDYE//
+void	data_init(t_game *game);
+void	map_alloc(t_game *game);
+void	map_maker(t_game *game);
+void	hooks(t_game *game);
+void	clear_win(t_game *game);
+void	raycast(t_game *game);
+void	ft_draw(t_game *game);
+void	algo_init(t_game *game);
+void	dda_algo(t_game *game, char **map);
+void	pre_dda(t_game *game);
+void	map_render(t_game *game, char **map);
+void	texture_render(t_game *game);
+void	walls_render(t_game *game);
+void	my_pixelput(t_game *game, int x, int y, int color);
+void	image_maker(t_game *game);
+void	window(t_game *game);
+void	tex_init(t_tex *tex, void *mlx);
+void	upp(t_game *game, char **map);
+void	down(t_game *game, char **map);
+void	right(t_game *game);
+void	left(t_game *game);
+void	r_strafing(t_game *game, char **map);
+void	l_strafing(t_game *game, char **map);
+int		getcolor(t_tex *tex, int x, int y);
+int		create_trgb(int t, int r, int g, int b);
+int		movement(int key, t_game *game);
+int		ft_keypress(int key, t_game *game);
+int		ft_keyrelease(int key, t_game *game);
+int		hook_loop(t_game *game);
+int		kb_hooks(int key, t_game *game);
+
 #endif

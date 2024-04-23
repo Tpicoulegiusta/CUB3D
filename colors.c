@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   innit_obj.c                                        :+:      :+:    :+:   */
+/*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 12:54:18 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/23 14:39:59 by tpicoule         ###   ########.fr       */
+/*   Created: 2024/04/22 16:58:14 by tpicoule          #+#    #+#             */
+/*   Updated: 2024/04/23 13:55:59 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_innit_obj(t_game *game)
+int	create_trgb(int t, int r, int g, int b)
 {
-	game->data.tex_n.path = NULL;
-	game->data.tex_s.path = NULL;
-	game->data.tex_w.path = NULL;
-	game->data.tex_e.path = NULL;
-	game->data.f = NULL;
-	game->data.c = NULL;
+	return (t << 24 | r << 16 | g << 8 | b);
 }

@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 15:31:22 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/22 13:36:48 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/23 16:16:28 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,37 +50,3 @@ int	ft_check_l_r(char *str)
 		return (0);
 	return (1);
 }
-
-
-// void	ft_check_left_right(t_game *game)
-// {
-// 	int	i;
-// 	int	j;
-
-// 	i = game->first_line + 1;
-// 	while (i < game->last_line)
-// 	{
-// 		j = 0;
-// 		while (game->file.all_file[i][j])
-// 		{
-// 			while (game->file.all_file[i][j] == ' ')
-// 			{
-// 				game->file.all_file[i][j] = '1';
-// 				j++;
-// 			}
-// 			printf("j == %c\n", game->file.all_file[i][j]);
-// 			if (game->file.all_file[i][j] != '1')
-// 			{
-// 				printf("Erreur on line map\n");
-// 				exit(EXIT_FAILURE);
-// 			}
-// 			if (ft_check_l_r(game->file.all_file[i]) == 1)
-// 			{
-// 				printf("Erreur on line map");
-// 				exit(EXIT_FAILURE);
-// 			}
-// 			break ;
-// 		}
-// 		i++;
-// 	}
-// }

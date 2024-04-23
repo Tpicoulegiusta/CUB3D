@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:40:20 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/22 13:42:08 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/23 16:11:37 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ void	ft_exit_2(t_game *game, char *str)
 
 void	ft_free_obj(t_game *game)
 {
-	if (game->data.no)
-		free(game->data.no);
-	if (game->data.so)
-		free(game->data.so);
-	if (game->data.we)
-		free(game->data.we);
-	if (game->data.ea)
-		free(game->data.ea);
+	if (game->data.tex_n.path)
+		free(game->data.tex_n.path);
+	if (game->data.tex_s.path)
+		free(game->data.tex_s.path);
+	if (game->data.tex_w.path)
+		free(game->data.tex_w.path);
+	if (game->data.tex_e.path)
+		free(game->data.tex_e.path);
 	if (game->data.f)
 		free(game->data.f);
 	if (game->data.c)
@@ -64,7 +64,7 @@ void	ft_innit(t_game *game)
 	game->first_line = 0;
 	game->x_player = 0;
 	game->y_player = 0;
-	game->bool = 0;
+	game->flag = 0;
 	game->boool = 0;
 	game->size_max = 0;
 	game->long_line = 0;
@@ -77,7 +77,6 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 	int		i;
-	int x = 0;
 
 	i = 0;
 	ft_innit(&game);
@@ -85,10 +84,21 @@ int	main(int argc, char **argv)
 	if (ft_parsing(argc, argv, &game) != 0)
 		return (1);
 	ft_void_reunit(&game);
-	while(game.file.map[x])
-	{
-		printf("map == '%s'\n", game.file.map[x]);
-		x++;
-	}
+	// int x = 0;
+	// while(game.file.map[x])
+	// {
+	// 	printf("map == '%s'\n", game.file.map[x]);
+	// 	x++;
+	// }
+	//reddy/////////////////////////////////////////
+	data_init(&game);
+	window(&game);
+	tex_init(&game.data.tex_n, game.data.mlx);
+	tex_init(&game.data.tex_s, game.data.mlx);
+	tex_init(&game.data.tex_e, game.data.mlx);
+	tex_init(&game.data.tex_w, game.data.mlx);
+	raycast(&game);
+	hooks(&game);
+	mlx_loop(game.data.mlx);
 	ft_freez(&game);
 }

@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 13:46:08 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/22 13:37:03 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/23 16:16:09 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	ft_void_reunit(t_game *game)
 	ft_look_at_me(game);
 	ft_check_line(game->file.all_file[game->first_line]);
 	ft_check_line(game->file.all_file[game->last_line]);
-	//ft_check_left_right(game);
 	ft_pre_check(game);
 	ft_check_inside(game);
 	ft_check_inside_2(game);

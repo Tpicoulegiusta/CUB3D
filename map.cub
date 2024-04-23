@@ -1,11 +1,16 @@
-F 10,30,0
+
+
+  EA ./textures/ETEX.xpm
+NO      ./textures/NTEX.xpm  
+WE ./textures/WTEX.xpm
+       SO ./textures/tommitexture.xpm
+
+F 255,255,255
 C 0,0  , 00
 
-  EA ./path_to_the_south_texture.xpm
-NO      ./path_to_the_east_texture.xpm  
-WE ./path_to_the_west_texture.xpm
-       SO ./path_to_the_south_texture.xpm
+1111111111
+1100000011
+1100S00011
+1100000011
+1111111111
 
-1 
- N 
-  

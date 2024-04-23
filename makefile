@@ -6,7 +6,7 @@
 #    By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/13 15:51:24 by tpicoule          #+#    #+#              #
-#    Updated: 2024/04/19 15:17:34 by tpicoule         ###   ########.fr        #
+#    Updated: 2024/04/23 15:01:26 by tpicoule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,15 @@ SOURCES		= cub3d.c \
 			  parsing_map_4.c \
 			  parsing_reunion.c \
 			  repair.c \
+			  algo.c \
+			  colors.c \
+			  inits.c \
+			  inputs.c \
+			  inputs2.c \
+			  mlx_utils.c \
+			  multitouch.c \
+			  raycasting.c \
+			  win_manage.c \
 			  innit_obj.c
 			  
 			  
@@ -40,21 +49,26 @@ OBJECTS		= ${SOURCES:.c=.o}
 RM			= rm -f
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -g #-fsanitize=address
-#MLX			= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+MLX			= -Lmlx -lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz
+MLX_LIB		= mlx/libmlx.a
 
 .c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+	${CC} ${CFLAGS} -I/usr/include -Imlx -O3 -c $< -o ${<:.c=.o}
 
-${NAME}: 	${OBJECTS}
-	${CC} ${CFLAGS} ${MLX} ${OBJECTS} -o ${NAME}
+${NAME}:	${MLX_LIB} ${OBJECTS}
+	${CC} ${CFLAGS} ${OBJECTS} ${MLX} -o ${NAME}
 
 all:		${NAME}
+
+${MLX_LIB}:
+	@${MAKE} -C mlx/
 
 clean:
 	${RM} ${OBJECTS}
 
 fclean: clean
 	${RM} ${NAME}
+	${MAKE} clean -C mlx/
 
 re: fclean all
 
