@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 14:23:38 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/22 13:32:08 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/24 13:29:30 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_pre_check(t_game *g)
 									&& g->file.all_file[i][j] != 'E'
 										&& g->file.all_file[i][j] != 'W')
 			{
-				printf("Erreur components");
+				printf("Erreur components\n");
 				exit(EXIT_FAILURE);
 			}
 			j++;
@@ -84,7 +84,7 @@ void	ft_check_inside_2(t_game *g)
 	}
 	if (g->boool != 1)
 	{
-		printf("Erreur player");
+		printf("Erreur player\n");
 		exit(EXIT_FAILURE);
 	}
 }

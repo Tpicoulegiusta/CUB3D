@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 17:25:38 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/12 14:24:22 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/24 13:24:54 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_check_one(char *t_p_color)
 			i++;
 		if (t_p_color[i] && t_p_color[i] != '\0')
 		{
-			printf("Erreur t_p_color colorz\n");
+			printf("Erreur t_p_color color\n");
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -43,7 +43,7 @@ void	ft_check_nbr(int nbr, t_game *game)
 {
 	if (nbr < 0 || nbr > 255)
 	{
-		printf("Erreur path colorsss\n");
+		printf("Erreur path colors\n");
 		exit(EXIT_FAILURE);
 	}
 	ft_rgb_f_c(nbr, game);
@@ -87,7 +87,7 @@ void	ft_check_tree(char *path, t_game *game)
 	}
 	if (i != 3)
 	{
-		printf("Erreur path colorsss\n");
+		printf("Erreur path colors\n");
 		exit(EXIT_FAILURE);
 	}
 	ft_free_tab(tab_p_colors);

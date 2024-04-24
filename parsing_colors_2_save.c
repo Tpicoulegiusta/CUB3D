@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 14:14:16 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/12 14:23:47 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/24 13:24:36 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_check_2_bis(char *path)
 	{
 		if (path[i] == ',' && path[i + 1] == ',')
 		{
-			printf("Erreur path colorsss\n");
+			printf("Erreur path colors\n");
 			exit(EXIT_FAILURE);
 		}
 		i++;
@@ -43,7 +43,7 @@ void	ft_check_two(char *path)
 	}
 	if (count != 2)
 	{
-		printf("Erreur path colorss\n");
+		printf("Erreur path colors\n");
 		exit(EXIT_FAILURE);
 	}
 	ft_check_2_bis(path);

@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 14:25:21 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/12 14:26:19 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/24 13:29:15 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ void	other_check(t_game *g)
 		{
 			if (g->file.all_file[i][j] == 'F' && g->file.all_file[i][j + 1]
 					&& g->file.all_file[i][j + 1] == ' ')
-				g->bool++;
+				g->flag++;
 			else if (g->file.all_file[i][j] == 'C' && g->file.all_file[i][j + 1]
 					&& g->file.all_file[i][j + 1] == ' ')
-				g->bool++;
+				g->flag++;
 			j++;
 		}
 	}
@@ -75,12 +75,12 @@ void	ft_search_colors(t_game *game)
 	}
 	game->file.tab_colors[k] = NULL;
 	other_check(game);
-	if (game->bool != 2)
+	if (game->flag != 2)
 	{
 		ft_free_tab(game->file.all_file);
 		ft_free_tab(game->file.tab_txt);
 		ft_free_tab(game->file.tab_colors);
-		write(2, "Error\nfile problems_colors2\n", 28);
+		write(2, "Error\nfile problems_colors\n", 27);
 		exit(EXIT_FAILURE);
 	}
 }
