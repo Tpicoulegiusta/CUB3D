@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:22:19 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/18 15:26:41 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:21:50 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_reduce_2(t_game *game)
 
 	i = 0;
 	j = 0;
-	while (game->file.tab1[j])
+	while (i < game->nb_line && game->file.tab1[j])
 	{
 		k = 0;
 		while (game->file.tab1[j] != '\0' && game->file.tab1[j] != '\n')

@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:46:53 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/18 15:28:47 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:16:49 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_repair(t_game *game)
 	game->nb_line = count;
 	i = -1;
 	game->tab_tab = malloc(sizeof(char *) * (count + 2));
-	while (++i <= count)
+	while (++i < count)
 	{
 		start = j;
 		while (game->file.tab1[j] != '\n' && game->file.tab1[j] != '\0')

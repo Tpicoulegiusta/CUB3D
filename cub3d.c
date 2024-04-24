@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:40:20 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/23 16:11:37 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:39:23 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	main(int argc, char **argv)
 	// 	printf("map == '%s'\n", game.file.map[x]);
 	// 	x++;
 	// }
-	//reddy/////////////////////////////////////////
+	// //reddy/////////////////////////////////////////
 	data_init(&game);
 	window(&game);
 	tex_init(&game.data.tex_n, game.data.mlx);

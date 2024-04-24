@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:41:49 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/23 16:37:47 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:32:27 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -224,6 +224,7 @@ void	ft_first_line_2(t_game *game);
 void	ft_last_man(t_game *game);
 void	ft_innit_obj(t_game *game);
 void	ft_reduce_2(t_game *game);
+void	ft_another_check(t_game *game);
 
 void	ft_exit(t_game *game, char *str);
 void	ft_exit_2(t_game *game, char *str);

@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 13:46:08 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/23 16:16:09 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:28:04 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	ft_void_reunit(t_game *game)
 	ft_last_line_2(game);
 	ft_first_line_2(game);
 	ft_last_man(game);
+	ft_another_check(game);
 }
 
 void	ft_freez(t_game *game)
