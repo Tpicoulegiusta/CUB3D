@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:54:18 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/25 15:20:32 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/25 17:18:51 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,32 @@ void	ft_brandon_validate(t_game *game)
 	int	j;
 	int	k;
 
-	i = 0;
+	//i = game->first_line;
 	j = 0;
 	k = 0;
-	while (game->tab_tab[i])
-		i++;
-	k = i;
+	printf("first_line_2 %d\n", game->first_line_2);
+	printf("last_line_2 %d\n", game->last_line_2);
+	int x = game->first_line_2;
+	while (game->tab_tab[x])
+	{
+		printf("-- '%s'\n", game->tab_tab[x]);
+		x++;
+	}
+	printf("-- '%s'\n", game->tab_tab[x]);
+	x = 0;
+	while (game->file.map[x])
+	{
+		printf("++ '%s'\n", game->file.map[x]);
+		x++;
+	}
+	//printf("first_line=%d\tlast_line=%d\tnb_line=%d\n", game->first_line_2, game->last_line_2, game->nb_line);
+	j = game->last_line_2 - game->first_line_2 + 1;
 	i = 0;
 	while (game->file.map[i])
 		i++;
-	if (k != i)
+	printf("i => %d\n", i);
+	printf("j => %d\n", j);
+	if (j != i)
 	{
 		printf("Error_map\n");
 		exit(EXIT_FAILURE);
