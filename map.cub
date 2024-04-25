@@ -1,17 +1,18 @@
 
 
-NO textures/test/north.xpm
-SO textures/test/south.xpm
-WE textures/test/west.xpm
-EA textures/test/east.xpm
+NO textures/NTEX.xpm
+SO textures/STEX.xpm
+WE textures/WTEX.xpm
+EA textures/ETEX.xpm
 
 F 20,20,20
 C 200,200,200
 
+
 11111
 10001
-10S01
 10001
+100S1
 10001
 10001
 11001
@@ -21,3 +22,7 @@ C 200,200,200
 10001
 10001
 11111
+
+
+
+1
