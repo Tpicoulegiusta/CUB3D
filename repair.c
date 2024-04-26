@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:46:53 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/25 17:04:44 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/26 14:56:59 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,28 @@
 void	ft_repair(t_game *game)
 {
 	int		i;
-	int		count;
 	int		j;
 	int		start;
 
-	count = 0;
-	i = 0;
-	j = 0;
-	while (game->file.tab1[i++])
-	{
-		if (game->file.tab1[i] == '\n')
-			count++;
-	}
-	game->nb_line = count;
 	i = -1;
-	game->tab_tab = malloc(sizeof(char *) * (count + 2));
-	while (++i < count)
+	game->nb_line = 0;
+	while (game->file.tab1[++i])
+		if (game->file.tab1[i] == '\n')
+			game->nb_line++;
+	if (game->file.tab1[i] == '\0' && game->file.tab1[i - 1] != '\n')
+			game->nb_line++;
+	//printf("game->nb_line = %d\n", game->nb_line);
+	game->tab_tab = malloc(sizeof(char *) * (game->nb_line + 1));
+	i = -1;
+	j = 0;
+	while (++i < game->nb_line)
 	{
+		//printf("i = %d\n", i);
 		start = j;
 		while (game->file.tab1[j] != '\n' && game->file.tab1[j] != '\0')
 			j++;
 		game->tab_tab[i] = malloc(sizeof(char) * (j - start + 2));
+		//printf("j - start + 2 = %d\n", j - start + 2);
 		j++;
 	}
 	ft_reduce_2(game);

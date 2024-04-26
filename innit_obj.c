@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:54:18 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/25 17:18:51 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/26 15:03:03 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,15 @@ void	ft_another_check_2(t_game *game)
 	int	i;
 	int	j;
 
-	i = game->first_line_2;
-	while (i <= game->last_line_2)
+	i = 0;
+	while (game->file.map[i])
 	{
 		j = 0;
-		while (game->tab_tab[i][j] != '\n')
+		while (game->file.map[i][j])
 			j++;
-		if (game->tab_tab[i][j - 1] != '1')
+		if (game->file.map[i][j - 1] && game->file.map[i][j - 1] != '1')
 		{
-			printf("Error_map\n");
+			printf("Error_map2\n");
 			exit(EXIT_FAILURE);
 		}
 		i++;
@@ -68,34 +68,30 @@ void	ft_brandon_validate(t_game *game)
 	int	j;
 	int	k;
 
-	//i = game->first_line;
+	i = game->first_line;
 	j = 0;
 	k = 0;
-	printf("first_line_2 %d\n", game->first_line_2);
-	printf("last_line_2 %d\n", game->last_line_2);
+	// printf("first_line_2 %d\n", game->first_line_2);
+	// printf("last_line_2 %d\n", game->last_line_2);
 	int x = game->first_line_2;
 	while (game->tab_tab[x])
 	{
 		printf("-- '%s'\n", game->tab_tab[x]);
 		x++;
 	}
-	printf("-- '%s'\n", game->tab_tab[x]);
 	x = 0;
 	while (game->file.map[x])
 	{
 		printf("++ '%s'\n", game->file.map[x]);
 		x++;
 	}
-	//printf("first_line=%d\tlast_line=%d\tnb_line=%d\n", game->first_line_2, game->last_line_2, game->nb_line);
 	j = game->last_line_2 - game->first_line_2 + 1;
 	i = 0;
 	while (game->file.map[i])
 		i++;
-	printf("i => %d\n", i);
-	printf("j => %d\n", j);
 	if (j != i)
 	{
-		printf("Error_map\n");
+		printf("Error_map brandon\n");
 		exit(EXIT_FAILURE);
 	}
 }
