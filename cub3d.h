@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:41:49 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/25 15:19:46 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/26 16:34:44 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -227,12 +227,9 @@ void	ft_reduce_2(t_game *game);
 void	ft_another_check(t_game *game);
 void	ft_another_check_2(t_game *game);
 void	ft_brandon_validate(t_game *game);
-
 void	ft_exit(t_game *game, char *str);
 void	ft_exit_2(t_game *game, char *str);
 void	ft_free_obj(t_game *game);
-
-//REDDYE//
 void	data_init(t_game *game);
 void	map_alloc(t_game *game);
 void	map_maker(t_game *game);

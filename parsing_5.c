@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 12:05:54 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/12 14:10:25 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/26 16:37:20 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_check_path(char *path)
 	{
 		if (path[i] == ' ' || path[i] == '\t')
 		{
-			printf("erreur path\n");
+			printf("error path\n");
 			exit(EXIT_FAILURE);
 		}
 		i++;

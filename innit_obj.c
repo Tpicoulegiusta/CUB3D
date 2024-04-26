@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:54:18 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/26 16:31:42 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/26 16:35:07 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_another_check_2(t_game *game)
 			j++;
 		if (game->file.map[i][j - 1] && game->file.map[i][j - 1] != '1')
 		{
-			printf("Error_map2\n");
+			printf("Error_map\n");
 			exit(EXIT_FAILURE);
 		}
 		i++;
@@ -77,7 +77,7 @@ void	ft_brandon_validate(t_game *game)
 		i++;
 	if (j != i)
 	{
-		printf("Error_map brandon\n");
+		printf("Error_map\n");
 		exit(EXIT_FAILURE);
 	}
 }

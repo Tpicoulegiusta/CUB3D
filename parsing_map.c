@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 15:38:07 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/25 17:11:28 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/26 16:36:27 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_reducer(t_game *game)
 {
 	(void)game;
-	printf("Erreur map_1_smthing down here or missing map\n");
+	printf("Error map_1_smthing down here or missing map\n");
 	exit(EXIT_FAILURE);
 }
 
