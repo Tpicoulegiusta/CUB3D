@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:54:18 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/26 15:03:03 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/26 16:31:42 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,20 +71,6 @@ void	ft_brandon_validate(t_game *game)
 	i = game->first_line;
 	j = 0;
 	k = 0;
-	// printf("first_line_2 %d\n", game->first_line_2);
-	// printf("last_line_2 %d\n", game->last_line_2);
-	int x = game->first_line_2;
-	while (game->tab_tab[x])
-	{
-		printf("-- '%s'\n", game->tab_tab[x]);
-		x++;
-	}
-	x = 0;
-	while (game->file.map[x])
-	{
-		printf("++ '%s'\n", game->file.map[x]);
-		x++;
-	}
 	j = game->last_line_2 - game->first_line_2 + 1;
 	i = 0;
 	while (game->file.map[i])

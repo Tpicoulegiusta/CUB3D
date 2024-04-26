@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:46:53 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/26 14:56:59 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/26 16:31:27 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,16 @@ void	ft_repair(t_game *game)
 		if (game->file.tab1[i] == '\n')
 			game->nb_line++;
 	if (game->file.tab1[i] == '\0' && game->file.tab1[i - 1] != '\n')
-			game->nb_line++;
-	//printf("game->nb_line = %d\n", game->nb_line);
+		game->nb_line++;
 	game->tab_tab = malloc(sizeof(char *) * (game->nb_line + 1));
 	i = -1;
 	j = 0;
 	while (++i < game->nb_line)
 	{
-		//printf("i = %d\n", i);
 		start = j;
 		while (game->file.tab1[j] != '\n' && game->file.tab1[j] != '\0')
 			j++;
 		game->tab_tab[i] = malloc(sizeof(char) * (j - start + 2));
-		//printf("j - start + 2 = %d\n", j - start + 2);
 		j++;
 	}
 	ft_reduce_2(game);

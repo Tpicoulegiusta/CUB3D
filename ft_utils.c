@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:22:19 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/26 14:56:53 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/26 16:29:45 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,5 @@ void	ft_reduce_2(t_game *game)
 		game->tab_tab[i][k] = '\0';
 		i++;
 	}
-	//printf("i = %d\n", i);
 	game->tab_tab[i] = NULL;
 }

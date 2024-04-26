@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:40:20 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/25 15:15:01 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/26 16:32:07 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,13 +84,6 @@ int	main(int argc, char **argv)
 	if (ft_parsing(argc, argv, &game) != 0)
 		return (1);
 	ft_void_reunit(&game);
-	// int x = 0;
-	// while(game.tab_tab[x])
-	// {
-	// 	printf("map == '%s'\n", game.tab_tab[x]);
-	// 	x++;
-	// }
-	// //reddy/////////////////////////////////////////
 	data_init(&game);
 	window(&game);
 	tex_init(&game.data.tex_n, game.data.mlx);
