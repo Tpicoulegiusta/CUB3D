@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 16:46:37 by tpicoule          #+#    #+#             */
-/*   Updated: 2024/04/29 15:22:38 by tpicoule         ###   ########.fr       */
+/*   Updated: 2024/04/29 18:15:43 by rbulanad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,11 +86,21 @@ void	algo_init(t_game *game)
 void	tex_init(t_tex *tex, void *mlx)
 {
 	int	x;
+	int	len;
 
+	len = ft_strlen(tex->path) - 1;
+	if (len < 4 || tex->path[len] != 'm' \
+		|| tex->path[len - 1] != 'p' \
+		|| tex->path[len - 2] != 'x' \
+		|| tex->path[len - 3] != '.')
+	{
+		printf("ERR: Not an xpm file\n");
+		exit(1);
+	}
 	tex->img = mlx_xpm_file_to_image(mlx, tex->path, &x, &x);
 	if (!tex->img)
 	{
-		printf("ERR: Not an xpm file\n");
+		printf("ERR: Not an xpm file2\n");
 		exit(1);
 	}
 	tex->addr = \
