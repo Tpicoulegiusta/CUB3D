@@ -6,7 +6,7 @@
 #    By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/13 15:51:24 by tpicoule          #+#    #+#              #
-#    Updated: 2024/04/24 18:38:59 by tpicoule         ###   ########.fr        #
+#    Updated: 2024/04/29 18:20:04 by rbulanad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ SOURCES		= cub3d.c \
 OBJECTS		= ${SOURCES:.c=.o}
 RM			= rm -f
 CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS		= -Wall -Wextra -Werror -g
 MLX			= -Lmlx -lmlx -L/usr/lib -Imlx -lXext -lX11 -lm -lz
 MLX_LIB		= mlx/libmlx.a
 
